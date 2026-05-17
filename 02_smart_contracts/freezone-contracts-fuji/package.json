@@ -1,0 +1,20 @@
+{
+  "name": "freezone-contracts-fuji",
+  "version": "0.1.0",
+  "private": true,
+  "description": "FreeZone smart contracts for Avalanche Fuji hackathon deployment.",
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy:fuji": "hardhat run scripts/deploy.js --network fuji",
+    "demo:fuji": "hardhat run scripts/demo-interact.js --network fuji",
+    "clean": "hardhat clean"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^16.4.7",
+    "hardhat": "^2.22.19"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.1.0"
+  }
+}
