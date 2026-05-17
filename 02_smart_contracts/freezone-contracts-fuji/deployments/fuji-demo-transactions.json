@@ -1,0 +1,22 @@
+{
+  "network": "fuji",
+  "chainId": 43113,
+  "signer": "0xbaCC502485B91AB3044146Dca0C865121d7015c9",
+  "contracts": {
+    "FreeZoneDocumentRegistry": "0x8264C43Ae7dAA851D075f27A511ffd59BD8AFDB4",
+    "FreeZonePaymentIntentRegistry": "0x1a56b84cec847Ff8Ac1979C3d8B337bcFcb936bC"
+  },
+  "demo": {
+    "companyId": "company-mx-001",
+    "docType": "certificate_of_origin",
+    "docHash": "0xd909fa6e98e46ad772cca6e0a0521dd45bdaccc05a472011c799244d987d6f25",
+    "paymentId": "0x7905f08ebf7525ec063c770e317857a15c248eac0bbc542cbec123d2fc35076e",
+    "documentTx": "0x2f35d3960f5051ed27447ed949ff2adbcfb3583eed92d4ccf23a63d13d81dcbe",
+    "reputationTx": "0xf1fdc3731254ec21f2cc63f4d5f230285350997804dc558d386110bba54eb29b",
+    "paymentIntentTx": "0xcc5b82afddab0ace3d6ae00a8e6329564523ea8ece7a8ffd8601e96f4a0f0fae",
+    "documentExplorer": "https://testnet.snowtrace.io/tx/0x2f35d3960f5051ed27447ed949ff2adbcfb3583eed92d4ccf23a63d13d81dcbe",
+    "reputationExplorer": "https://testnet.snowtrace.io/tx/0xf1fdc3731254ec21f2cc63f4d5f230285350997804dc558d386110bba54eb29b",
+    "paymentExplorer": "https://testnet.snowtrace.io/tx/0xcc5b82afddab0ace3d6ae00a8e6329564523ea8ece7a8ffd8601e96f4a0f0fae"
+  },
+  "executedAt": "2026-05-17T16:19:47.099Z"
+}
