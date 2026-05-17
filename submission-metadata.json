@@ -1,0 +1,22 @@
+{
+  "project": "FreeZone",
+  "tagline": "Operational Financial Infrastructure",
+  "live_demo": "https://freezone-demo.vercel.app",
+  "submission_type": "Hackathon MVP deliverable",
+  "included": [
+    "Next.js application",
+    "API contracts",
+    "Avalanche Fuji smart contracts",
+    "Hardhat deployment scripts",
+    "Technical documentation",
+    "Demo script",
+    "Compliance/CLARITY-ready note",
+    "Real vs mock disclosure"
+  ],
+  "network": {
+    "name": "Avalanche Fuji C-Chain",
+    "chainId": 43113,
+    "rpc": "https://api.avax-test.network/ext/bc/C/rpc",
+    "explorer": "https://testnet.snowtrace.io"
+  }
+}
