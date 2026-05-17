@@ -1,0 +1,7 @@
+import { NextRequest } from "next/server";
+import crypto from "crypto";
+import { fail, ok } from "@/lib/api";
+import { buildTxHash, explorerUrl, getDemoState, SCORES } from "@/lib/demo-data";
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+export async function POST(req: NextRequest) { const formData = await req.formData(); const file = formData.get("file"); const companyId = String(formData.get("companyId") ?? "company-mx-001"); const channelId = String(formData.get("channelId") ?? "channel-demo-001"); const docType = String(formData.get("docType") ?? "certificate_of_origin"); if (!companyId || !channelId || !docType) return fail("companyId, channelId and docType are required."); let buffer: Buffer; if (file instanceof File) { const arrayBuffer = await file.arrayBuffer(); buffer = Buffer.from(arrayBuffer); } else { buffer = Buffer.from(`${companyId}:${channelId}:${docType}:${Date.now()}`); } const docHash = crypto.createHash("sha256").update(buffer).digest("hex"); const txHash = buildTxHash(`freezone:${docHash}`); const documentId = `doc-${docHash.slice(0, 12)}`; return ok({ success: true, documentId, companyId, channelId, docType, fileName: file instanceof File ? file.name : "certificate_of_origin.pdf", docHash, txHash, avalancheNetwork: "Fuji Testnet", avalancheExplorer: explorerUrl(txHash), status: "minted", scoreImpact: { previousScore: SCORES.supplierBefore, newScore: SCORES.supplierAfter, paymentUnlocked: true }, nextState: getDemoState("after") }); }

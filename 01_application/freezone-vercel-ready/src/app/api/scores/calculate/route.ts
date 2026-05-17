@@ -1,0 +1,5 @@
+import { NextRequest } from "next/server";
+import { fail, ok } from "@/lib/api";
+import { buildTxHash, explorerUrl, SCORES } from "@/lib/demo-data";
+export const dynamic = "force-dynamic";
+export async function POST(req: NextRequest) { const body = await req.json().catch(() => null); if (!body?.companyId) return fail("companyId is required."); const companyId = String(body.companyId); const txHash = buildTxHash(`score:${companyId}:${Date.now()}`); return ok({ success: true, companyId, documentId: body.documentId ?? "doc-demo-001", previousScore: SCORES.supplierBefore, newScore: SCORES.supplierAfter, paymentUnlocked: true, attestation: { txHash, avalancheNetwork: "Fuji Testnet", avalancheExplorer: explorerUrl(txHash) }, reasoning: "The supplier uploaded a critical certificate with verifiable blockchain proof, improving compliance and reducing operational risk.", flags: [], recommendations: ["Upload recurring quality reports to maintain trust score.", "Keep certificates updated before expiration."] }); }

@@ -1,0 +1,4 @@
+import { NextRequest } from "next/server";
+import { fail, ok } from "@/lib/api";
+export const dynamic = "force-dynamic";
+export async function POST(req: NextRequest) { const body = await req.json().catch(() => null); if (!body) return fail("Invalid JSON body."); const { channelId = "channel-demo-001", fromCompanyId = "company-ar-001", toCompanyId = "company-mx-001", amountUsd = 47500, currencyFrom = "ARS", currencyTo = "MXN" } = body; return ok({ success: true, paymentId: "payment-demo-001", provider: "Axiym Sandbox", channelId, fromCompanyId, toCompanyId, amountUsd, currencyFrom, currencyTo, status: "processing", estimatedSettlement: "8 seconds", fee: "$0.002", swiftComparison: { swiftTime: "3-5 business days", swiftFee: "$25-$45", freezoneTime: "< 10 seconds", freezoneFee: "< $0.01" }, message: "Cross-border payment initiated after supplier met operational trust threshold." }); }
